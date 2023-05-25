@@ -1,0 +1,15 @@
+<div class="sidebar-container" *ngIf="data.sidebarVisible">
+  <div class="close-icon" (click)="closeSidebar($event)">X</div>
+  <div class="subtitle">Language</div>
+  <div class="language-choice">Mandarin</div>
+  <div class="subtitle">Difficulty</div>
+  <div class="difficulty-container">
+    <div class="difficulty-choice">HSK1</div>
+    <div class="difficulty-choice">HSK2</div>
+    <div class="difficulty-choice">HSK3</div>
+    <div class="difficulty-choice">HSK4</div>
+    <div class="difficulty-choice">HSK5</div>
+    <div class="difficulty-choice">HSK6</div>
+  </div>
+</div>
+<div class="sidebar-backdrop" *ngIf="data.sidebarVisible"></div>

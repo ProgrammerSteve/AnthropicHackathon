@@ -1,0 +1,17 @@
+.nav-container{
+background-color:black;
+height:30px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding:5px 20px;
+}
+.nav-title{
+color:white;
+font-size: 28px;
+}
+.nav-menu-icon-container{
+color:white;
+font-size: 28px;
+cursor: pointer;
+}
