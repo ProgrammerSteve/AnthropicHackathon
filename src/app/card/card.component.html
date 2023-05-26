@@ -1,3 +1,10 @@
 <div class="card-layout">
-  <div class="card-container"><ng-content></ng-content></div>
+  <div class="card-container">
+    <app-display
+      [question]="question"
+      [correct]="correct"
+      [attempts]="attempts"
+    ></app-display>
+    <app-choices [choices]="choices"></app-choices>
+  </div>
 </div>

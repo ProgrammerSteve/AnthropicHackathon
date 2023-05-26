@@ -1,1 +1,12 @@
-<div class="choices-container"></div>
+<div class="choices-container">
+  <div class="choices-div">
+    <div *ngFor="let choice of choices; let i = index" class="choice-container">
+      <div>{{ indexToLetter(i) }}</div>
+      <div>{{ choice }}</div>
+    </div>
+  </div>
+  <div class="buttons-div">
+    <div class="reset-btn">reset</div>
+    <div class="submit-btn">submit</div>
+  </div>
+</div>

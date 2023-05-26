@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-display',
@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./display.component.scss']
 })
 export class DisplayComponent {
+  @Input() question = ""
+  @Input() correct = 0
+  @Input() attempts = 0
 
 }
