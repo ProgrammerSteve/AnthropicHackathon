@@ -10,11 +10,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.sidebar-main{
+  }
+  
+  .sidebar-main {
   text-align: center;
-}
-.sidebar-header {
+  }
+  
+  .sidebar-header {
   width: 100%;
   background-color: #535353;
   display: flex;
@@ -23,9 +25,9 @@
   align-items: center;
   align-content: center;
   flex-wrap: wrap;
-}
-.language-option-container{
+  }
   
+  .language-option-container {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -34,41 +36,62 @@
   align-items: center;
   align-content: center;
   flex-wrap: wrap;
-}
-.language-option-container > div {
+  text-align: justify;
+  }
+  
+  .language-option-container > div {
   padding: 5px 0px;
-}
-.close-icon {
+  }
+  
+  .close-icon {
   color: white;
   font-size: 30px;
   cursor: pointer;
-}
-.sidebar-backdrop {
+  }
+  
+  .sidebar-backdrop {
   background-color: rgba(255, 255, 255, 0.5);
   position: absolute;
   inset: 0 0 0 0;
   height: 100vh;
   width: 100wh;
   z-index: 4;
-}
-.subtitle {
+  }
+  
+  .subtitle {
   font-size: 30px;
   padding: 10px 0px;
-}
-.language-choice {
+  }
+  
+  .language-choice {
+  display: flex;
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  padding: 5px;
+  cursor: pointer;
   font-size: 20px;
-}
-.difficulty-container {
+  }
+  
+  .language-option-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  }
+  
+  .difficulty-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px 20px;
-}
-.difficulty-container {
+  }
+  
+  .difficulty-container {
   position: relative;
   display: inline-block;
-}
-
-#difficulty-choice {
+  }
+  
+  #difficulty-choice {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -81,17 +104,25 @@
   width: 150px;
   outline: none;
   text-align: center;
-}
-
-.difficulty-container::after {
-  content: '\25BC';
+  }
+  
+  .difficulty-container::after {
+  content: "\25BC";
   position: absolute;
   top: 50%;
   right: 10px;
   transform: translateY(-50%);
   color: #ffffff;
   pointer-events: none;
-}
-#difficulty-choice option {
+  }
+  
+  #difficulty-choice option {
   color: #000000;
-}
+  }
+  
+  .language-choice span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  }

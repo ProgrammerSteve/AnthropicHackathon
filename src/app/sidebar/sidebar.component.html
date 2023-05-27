@@ -5,24 +5,39 @@
   </div>
   <div class="sidebar-main">
     <div class="subtitle">Select a Language</div>
-  <div class="language-option-container">
-    <button class="language-choice">Mandarin</button>
-    <button class="language-choice">Japanese</button>
-    <button class="language-choice">Korean</button>
-    <button class="language-choice">Spanish</button>
-  </div>
-  <div class="subtitle">Select a Difficulty</div>
-  <div class="difficulty-container">
-    <select id="difficulty-choice">
+    <div class="language-option-container">
+      <div class="language-choice-container">
+        <button class="language-choice">
+          <span class="fi fi-cn"></span> Mandarin
+        </button>
+      </div>
+      <div class="language-choice-container">
+        <button class="language-choice">
+          <span class="fi fi-jp"></span> Japanese
+        </button>
+      </div>
+      <div class="language-choice-container">
+        <button class="language-choice">
+          <span class="fi fi-kr"></span> Korean
+        </button>
+      </div>
+      <div class="language-choice-container">
+        <button class="language-choice">
+          <span class="fi fi-es"></span> Spanish
+        </button>
+      </div>
+    </div>
+    <div class="subtitle">Select a Difficulty</div>
+    <div class="difficulty-container">
+      <select id="difficulty-choice">
         <option value="HSK1">HSK1</option>
         <option value="HSK2">HSK2</option>
         <option value="HSK3">HSK3</option>
         <option value="HSK4">HSK4</option>
         <option value="HSK5">HSK5</option>
         <option value="HSK6">HSK6</option>
-    </select>
-</div>
-  
+      </select>
+    </div>
   </div>
 </div>
 <div class="sidebar-backdrop" *ngIf="data.sidebarVisible"></div>
