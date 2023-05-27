@@ -1,8 +1,8 @@
-.sidebar-container{
-  background-color: #190F0F;
+.sidebar-container {
+  background-color: #190f0f;
   position: absolute;
   right: 0;
-  top:0;
+  top: 0;
   height: 100vh;
   width: 200px;
   color: white;
@@ -11,32 +11,87 @@
   flex-direction: column;
   align-items: center;
 }
-
-.close-icon{
-  color:white;
+.sidebar-main{
+  text-align: center;
+}
+.sidebar-header {
+  width: 100%;
+  background-color: #535353;
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+.language-option-container{
+  
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+.language-option-container > div {
+  padding: 5px 0px;
+}
+.close-icon {
+  color: white;
   font-size: 30px;
-  align-self: flex-end;
   cursor: pointer;
 }
-.sidebar-backdrop{
-  background-color: rgba(255,255,255,0.5);
+.sidebar-backdrop {
+  background-color: rgba(255, 255, 255, 0.5);
   position: absolute;
   inset: 0 0 0 0;
   height: 100vh;
   width: 100wh;
   z-index: 4;
 }
-.subtitle{
+.subtitle {
   font-size: 30px;
+  padding: 10px 0px;
 }
-.language-choice{
+.language-choice {
   font-size: 20px;
 }
-.difficulty-choice{
-  font-size: 15px;
-}
-.difficulty-container{
+.difficulty-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap:10px 20px;
+  gap: 10px 20px;
+}
+.difficulty-container {
+  position: relative;
+  display: inline-block;
+}
+
+#difficulty-choice {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 8px;
+  font-size: 15px;
+  color: #ffffff;
+  cursor: pointer;
+  width: 150px;
+  outline: none;
+  text-align: center;
+}
+
+.difficulty-container::after {
+  content: '\25BC';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #ffffff;
+  pointer-events: none;
+}
+#difficulty-choice option {
+  color: #000000;
 }

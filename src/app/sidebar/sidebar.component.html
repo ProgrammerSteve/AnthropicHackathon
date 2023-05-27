@@ -1,20 +1,28 @@
 <div class="sidebar-container" *ngIf="data.sidebarVisible">
-  <div class="close-icon" (click)="closeSidebar($event)">X</div>
-
-  <fa-icon [icon]="faCoffee"></fa-icon>
-
-  <span class="fi fi-gr fis"></span>
-
-  <div class="subtitle">Language</div>
-  <div class="language-choice">Mandarin</div>
-  <div class="subtitle">Difficulty</div>
+  <div class="sidebar-header">
+    <div><h2>Icon</h2></div>
+    <div class="close-icon" (click)="closeSidebar($event)">X</div>
+  </div>
+  <div class="sidebar-main">
+    <div class="subtitle">Select a Language</div>
+  <div class="language-option-container">
+    <button class="language-choice">Mandarin</button>
+    <button class="language-choice">Japanese</button>
+    <button class="language-choice">Korean</button>
+    <button class="language-choice">Spanish</button>
+  </div>
+  <div class="subtitle">Select a Difficulty</div>
   <div class="difficulty-container">
-    <div class="difficulty-choice">HSK1</div>
-    <div class="difficulty-choice">HSK2</div>
-    <div class="difficulty-choice">HSK3</div>
-    <div class="difficulty-choice">HSK4</div>
-    <div class="difficulty-choice">HSK5</div>
-    <div class="difficulty-choice">HSK6</div>
+    <select id="difficulty-choice">
+        <option value="HSK1">HSK1</option>
+        <option value="HSK2">HSK2</option>
+        <option value="HSK3">HSK3</option>
+        <option value="HSK4">HSK4</option>
+        <option value="HSK5">HSK5</option>
+        <option value="HSK6">HSK6</option>
+    </select>
+</div>
+  
   </div>
 </div>
 <div class="sidebar-backdrop" *ngIf="data.sidebarVisible"></div>
