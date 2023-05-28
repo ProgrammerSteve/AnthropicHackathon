@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from '../services/data.service';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 // I'm leaving faCoffee as an example. You import the icon
 // you want and make a variable for it
@@ -15,7 +15,7 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 export class SidebarComponent {
 
   //This is the coffee icon variable
-  faCoffee = faCoffee
+  faXmark = faXmark
 
   constructor(public data: DataService) { }
   closeSidebar($event: Event) {

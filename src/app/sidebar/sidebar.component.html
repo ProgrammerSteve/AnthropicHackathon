@@ -1,42 +1,43 @@
 <div class="sidebar-container" *ngIf="data.sidebarVisible">
   <div class="sidebar-header">
-    <div><h2>Icon</h2></div>
-    <div class="close-icon" (click)="closeSidebar($event)">X</div>
+    <div class="close-icon" (click)="closeSidebar($event)"><fa-icon [icon]="faXmark"></fa-icon></div>
   </div>
   <div class="sidebar-main">
-    <div class="subtitle">Select a Language</div>
     <div class="language-option-container">
+      <div class="subtitle">Language</div>
       <div class="language-choice-container">
-        <button class="language-choice">
-          <span class="fi fi-cn"></span> Mandarin
+        <button class="language-button">
+          <span class="fi fi-cn"></span>
+          <p>Mandarin</p>
         </button>
       </div>
       <div class="language-choice-container">
-        <button class="language-choice">
-          <span class="fi fi-jp"></span> Japanese
+        <button class="language-button">
+          <span class="fi fi-jp"></span>
+          <p>Japanese</p>
         </button>
       </div>
       <div class="language-choice-container">
-        <button class="language-choice">
-          <span class="fi fi-kr"></span> Korean
+        <button class="language-button">
+          <span class="fi fi-kr"></span>
+          <p>Korean</p>
         </button>
       </div>
       <div class="language-choice-container">
-        <button class="language-choice">
-          <span class="fi fi-es"></span> Spanish
+        <button class="language-button">
+          <span class="fi fi-es"></span>
+          <p>Spanish</p>
         </button>
       </div>
     </div>
-    <div class="subtitle">Select a Difficulty</div>
+    <div class="subtitle">Difficulty</div>
     <div class="difficulty-container">
-      <select id="difficulty-choice">
-        <option value="HSK1">HSK1</option>
-        <option value="HSK2">HSK2</option>
-        <option value="HSK3">HSK3</option>
-        <option value="HSK4">HSK4</option>
-        <option value="HSK5">HSK5</option>
-        <option value="HSK6">HSK6</option>
-      </select>
+      <button class="difficulty-button">HSK1</button>
+      <button class="difficulty-button">HSK2</button>
+      <button class="difficulty-button">HSK3</button>
+      <button class="difficulty-button">HSK4</button>
+      <button class="difficulty-button">HSK5</button>
+      <button class="difficulty-button">HSK6</button>
     </div>
   </div>
 </div>
