@@ -1,0 +1,18 @@
+<div
+  class="choice-container"
+  [ngClass]="{ selected: selection == choice && selection !== '' }"
+  (click)="handleClick()"
+>
+  <div>{{ indexToLetter(index) }}</div>
+  <div>
+    {{ choice }}
+    <span class="icon" *ngIf="this.answer == this.choice && isSubmitted"
+      ><fa-icon class="check-icon" [icon]="checkMark"></fa-icon
+    ></span>
+    <span
+      class="icon"
+      *ngIf="this.answer !== this.choice && isSubmitted && selection == choice"
+      ><fa-icon class="x-icon" [icon]="xMark"></fa-icon
+    ></span>
+  </div>
+</div>
