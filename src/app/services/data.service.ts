@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 
-type Language = 'MANDARIN' | "KOREAN" | "JAPANESE"
+type Language = 'MANDARIN' | "KOREAN" | "JAPANESE" | "SPANISH"
 type MandarinDifficulty = 'HSK1' | 'HSK2' | 'HSK3' | 'HSK4' | 'HSK5'
 type JapaneseDifficulty = 'N5' | 'N4' | 'N3' | 'N2' | 'N1'
 type KoreanDifficulty = 'TOPIK 1' | 'TOPIK 2' | 'TOPIK 3'
-type Difficulty = MandarinDifficulty | JapaneseDifficulty | KoreanDifficulty
+type SpanishDifficulty = 'DELE A1' | 'DELE A2' | 'DELE B1' | 'DELE B2' | 'DELE C1' | 'DELE C2'
+export type Difficulty = MandarinDifficulty | JapaneseDifficulty | KoreanDifficulty | SpanishDifficulty
 
 // type LanguageToDifficultyMap = {
 //   MANDARIN: MandarinDifficulty;
@@ -18,43 +19,61 @@ type Difficulty = MandarinDifficulty | JapaneseDifficulty | KoreanDifficulty
   providedIn: 'root'
 })
 export class DataService {
-  language: Language = 'MANDARIN'
-  difficulty: Difficulty = 'HSK1'
+  private difficultySubject = new BehaviorSubject<Difficulty>('HSK1');
+  public difficulty$ = this.difficultySubject.asObservable();
+  public difficulty: Difficulty = 'HSK1'
 
-
-  difficulties: Record<Language, Difficulty[]> = {
-    MANDARIN: ['HSK1', 'HSK2', 'HSK3', 'HSK4', 'HSK5'],
-    JAPANESE: ['N5', 'N4', 'N3', 'N2', 'N1'],
-    KOREAN: ['TOPIK 1', 'TOPIK 2', 'TOPIK 3']
-  };
-
-  mandarinDifficultyArr: MandarinDifficulty[] = ['HSK1', 'HSK2', 'HSK3', 'HSK4', 'HSK5']
-  japaneseDifficultyArr: JapaneseDifficulty[] = ['N5', 'N4', 'N3', 'N2', 'N1']
-  koreanDifficultyArr: KoreanDifficulty[] = ['TOPIK 1', 'TOPIK 2', 'TOPIK 3']
-
-  setLanguage(languageSelection: Language) {
-    this.language = languageSelection
-  }
   setDifficulty(difficultySelection: Difficulty) {
-    this.difficulty = difficultySelection
+    this.difficultySubject.next(difficultySelection);
   }
-  selectLanguage(languageSelection: Language) {
-    this.setLanguage(languageSelection);
-    const difficultyArr = this.getDifficulties(languageSelection);
-    difficultyArr && this.setDifficulty(difficultyArr[0]);
-  }
-  getDifficulties(languageSelection: Language): Difficulty[] | null {
-    return this.difficulties[languageSelection] || null;
-  }
-
   selectDifficulty(difficultySelection: Difficulty) {
-    const languageDifficultyArr = this.difficulties[this.language];
+    let languageDifficultyArr = this.difficulties[this.getLanguage()];
     if (languageDifficultyArr && languageDifficultyArr.includes(difficultySelection)) {
       this.setDifficulty(difficultySelection);
     } else {
       // Handle error: Invalid difficulty for the selected language
       console.error('Invalid difficulty for the selected language');
     }
+  }
+
+  private languageSubject = new BehaviorSubject<Language>('MANDARIN');
+  public language$ = this.languageSubject.asObservable();
+  public language: Language = 'MANDARIN'
+  getLanguage() {
+    return this.languageSubject.value;
+  }
+  setLanguage(newValue: Language): void {
+    this.languageSubject.next(newValue);
+  }
+
+  selectLanguage(languageSelection: Language) {
+    this.setLanguage(languageSelection);
+    const difficultyArr = this.getDifficulties(languageSelection);
+    difficultyArr && this.setDifficulty(difficultyArr[0]);
+  }
+
+
+
+
+
+
+
+
+
+  difficulties: Record<Language, Difficulty[]> = {
+    MANDARIN: ['HSK1', 'HSK2', 'HSK3', 'HSK4', 'HSK5'],
+    JAPANESE: ['N5', 'N4', 'N3', 'N2', 'N1'],
+    KOREAN: ['TOPIK 1', 'TOPIK 2', 'TOPIK 3'],
+    SPANISH: ['DELE A1', 'DELE A2', 'DELE B1', 'DELE B2', 'DELE C1', 'DELE C2']
+  };
+
+  mandarinDifficultyArr: MandarinDifficulty[] = ['HSK1', 'HSK2', 'HSK3', 'HSK4', 'HSK5']
+  japaneseDifficultyArr: JapaneseDifficulty[] = ['N5', 'N4', 'N3', 'N2', 'N1']
+  koreanDifficultyArr: KoreanDifficulty[] = ['TOPIK 1', 'TOPIK 2', 'TOPIK 3']
+  spanishDifficultyArr: SpanishDifficulty[] = ['DELE A1', 'DELE A2', 'DELE B1', 'DELE B2', 'DELE C1', 'DELE C2']
+
+  getDifficulties(languageSelection: Language): Difficulty[] | null {
+    return this.difficulties[languageSelection] || null;
   }
 
   API_URL = `https://nextapi-programmersteve.vercel.app/api/anthropic`
@@ -107,11 +126,6 @@ export class DataService {
     this.isSubmittedSubject.next(newValue)
   }
 
-
-
-
-
-
   resetScore() {
     this.setCorrect(0)
     this.setAttempts(0)
@@ -124,8 +138,6 @@ export class DataService {
     this.setIsSubmitted(true)
   }
 
-
-
   sidebarVisible = false
   toggleSidebar() {
     this.sidebarVisible = !this.sidebarVisible
@@ -134,6 +146,4 @@ export class DataService {
   getData(prompt: string): Observable<any> {
     return this.http.get(this.API_URL);
   }
-
-
 }
