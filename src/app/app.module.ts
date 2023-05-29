@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +12,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { CardComponent } from './card/card.component';
 import { DisplayComponent } from './display/display.component';
 import { ChoicesComponent } from './choices/choices.component';
+import { ChoiceComponent } from './choice/choice.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +21,14 @@ import { ChoicesComponent } from './choices/choices.component';
     SidebarComponent,
     CardComponent,
     DisplayComponent,
-    ChoicesComponent
+    ChoicesComponent,
+    ChoiceComponent
   ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

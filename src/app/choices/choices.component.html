@@ -1,12 +1,32 @@
 <div class="choices-container">
   <div class="choices-div">
-    <div *ngFor="let choice of choices; let i = index" class="choice-container">
-      <div>{{ indexToLetter(i) }}</div>
-      <div>{{ choice }}</div>
-    </div>
+    <app-choice
+      *ngFor="let choice of choices; let i = index"
+      [index]="i"
+      [choice]="choice"
+      [answer]="answer"
+      [selection]="selection"
+      (choiceSelected)="choiceSelected($event)"
+    >
+    </app-choice>
   </div>
   <div class="buttons-div">
-    <div class="reset-btn">reset</div>
-    <div class="submit-btn">submit</div>
+    <div id="reset-btn" class="reset-btn" (click)="handleReset()">reset</div>
+    <div
+      *ngIf="!isSubmitted"
+      id="submit-btn"
+      class="submit-btn"
+      (click)="handleSubmit()"
+    >
+      submit
+    </div>
+    <div
+      *ngIf="isSubmitted"
+      id="continue-btn"
+      class="submit-btn"
+      (click)="handleContinue()"
+    >
+      continue
+    </div>
   </div>
 </div>

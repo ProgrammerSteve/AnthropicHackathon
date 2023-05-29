@@ -1,31 +1,43 @@
-import { Component, Input } from '@angular/core';
-
+import { Component, Input, OnDestroy, Output, EventEmitter, } from '@angular/core';
+import { DataService } from '../services/data.service';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-choices',
   templateUrl: './choices.component.html',
   styleUrls: ['./choices.component.scss']
 })
-export class ChoicesComponent {
+export class ChoicesComponent implements OnDestroy {
+  private isSubmittedSubscription: Subscription;
+  public isSubmitted = false
+  constructor(public dataService: DataService) {
+    this.isSubmittedSubscription = this.dataService.isSubmitted$.subscribe((value) => {
+      this.isSubmitted = value;
+    });
+  }
+  ngOnDestroy(): void {
+    this.isSubmittedSubscription.unsubscribe();
+  }
   @Input() choices: string[] = ['', '', '', '']
-
-  indexToLetter(index: number) {
-    switch (index) {
-      case 0:
-        return "A"
-      case 1:
-        return "B"
-      case 2:
-        return "C"
-      case 3:
-        return "D"
-      default:
-        return "null"
-    }
+  @Input() answer = ''
+  @Output() newQuestion = new EventEmitter<void>()
+  selection = ''
+  choiceSelected($event: string) {
+    // console.log("choice clicked")
+    // console.log($event)
+    this.selection = $event
   }
-  handleSubmit($event: Event) {
-    console.log("submit clicked")
+  handleContinue() {
+    this.dataService.setIsSubmitted(false)
+    this.selection = ''
+    this.newQuestion.emit()
   }
-  handleReset($event: Event) {
-    console.log("reset clicked")
+  handleSubmit() {
+    this.dataService.toggleSubmission(this.selection, this.answer)
+  }
+  handleReset() {
+    this.dataService.setIsSubmitted(false)
+    this.dataService.resetScore()
+    this.newQuestion.emit()
+    this.selection = ''
   }
 }

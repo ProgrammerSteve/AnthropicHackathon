@@ -1,0 +1,30 @@
+.choice-container{
+  margin-top: 30px;
+  margin-inline: auto;
+  height: 40px;
+  width: 80%;
+  background-color: white;
+  border:2px solid black;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  gap:20px;
+  cursor: pointer;
+}
+
+.selected{
+  background-color: #FBEAEA;
+}
+
+.check-icon{
+ color: green;
+}
+
+.x-icon{
+color: red;
+}
+
+.icon{
+margin-left: 5px;
+}
