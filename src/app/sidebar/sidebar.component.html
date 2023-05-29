@@ -56,74 +56,75 @@
       </div>
     </div>
     <div class="subtitle">Difficulty</div>
-
-    <ng-container *ngIf="language === 'MANDARIN'">
-      <div
-        class="difficulty-container"
-        *ngFor="let difficultySelection of mandarinDifficulties"
-      >
-        <button
-          class="difficulty-button"
-          (click)="handleDifficulty(difficultySelection)"
-          [ngClass]="{
-            'difficulty-button-selected': difficulty === difficultySelection
-          }"
+    <div class="difficulty-main-container">
+      <ng-container *ngIf="language === 'MANDARIN'">
+        <div
+          class="difficulty-container"
+          *ngFor="let difficultySelection of mandarinDifficulties"
         >
-          {{ difficultySelection }}
-        </button>
-      </div>
-    </ng-container>
+          <button
+            class="difficulty-button"
+            (click)="handleDifficulty(difficultySelection)"
+            [ngClass]="{
+              'difficulty-button-selected': difficulty === difficultySelection
+            }"
+          >
+            {{ difficultySelection }}
+          </button>
+        </div>
+      </ng-container>
 
-    <ng-container *ngIf="language === 'JAPANESE'">
-      <div
-        class="difficulty-container"
-        *ngFor="let difficultySelection of japaneseDifficulties"
-      >
-        <button
-          class="difficulty-button"
-          (click)="handleDifficulty(difficultySelection)"
-          [ngClass]="{
-            'difficulty-button-selected': difficulty === difficultySelection
-          }"
+      <ng-container *ngIf="language === 'JAPANESE'">
+        <div
+          class="difficulty-container"
+          *ngFor="let difficultySelection of japaneseDifficulties"
         >
-          {{ difficultySelection }}
-        </button>
-      </div>
-    </ng-container>
+          <button
+            class="difficulty-button"
+            (click)="handleDifficulty(difficultySelection)"
+            [ngClass]="{
+              'difficulty-button-selected': difficulty === difficultySelection
+            }"
+          >
+            {{ difficultySelection }}
+          </button>
+        </div>
+      </ng-container>
 
-    <ng-container *ngIf="language === 'KOREAN'">
-      <div
-        class="difficulty-container"
-        *ngFor="let difficultySelection of koreanDifficulties"
-      >
-        <button
-          class="difficulty-button"
-          (click)="handleDifficulty(difficultySelection)"
-          [ngClass]="{
-            'difficulty-button-selected': difficulty === difficultySelection
-          }"
+      <ng-container *ngIf="language === 'KOREAN'">
+        <div
+          class="difficulty-container"
+          *ngFor="let difficultySelection of koreanDifficulties"
         >
-          {{ difficultySelection }}
-        </button>
-      </div>
-    </ng-container>
+          <button
+            class="difficulty-button"
+            (click)="handleDifficulty(difficultySelection)"
+            [ngClass]="{
+              'difficulty-button-selected': difficulty === difficultySelection
+            }"
+          >
+            {{ difficultySelection }}
+          </button>
+        </div>
+      </ng-container>
 
-    <ng-container *ngIf="language === 'SPANISH'">
-      <div
-        class="difficulty-container"
-        *ngFor="let difficultySelection of spanishDifficulties"
-      >
-        <button
-          class="difficulty-button"
-          (click)="handleDifficulty(difficultySelection)"
-          [ngClass]="{
-            'difficulty-button-selected': difficulty === difficultySelection
-          }"
+      <ng-container *ngIf="language === 'SPANISH'">
+        <div
+          class="difficulty-container"
+          *ngFor="let difficultySelection of spanishDifficulties"
         >
-          {{ difficultySelection }}
-        </button>
-      </div>
-    </ng-container>
+          <button
+            class="difficulty-button"
+            (click)="handleDifficulty(difficultySelection)"
+            [ngClass]="{
+              'difficulty-button-selected': difficulty === difficultySelection
+            }"
+          >
+            {{ difficultySelection }}
+          </button>
+        </div>
+      </ng-container>
+    </div>
   </div>
 </div>
 <div class="sidebar-backdrop" *ngIf="data.sidebarVisible"></div>
