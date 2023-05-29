@@ -1,15 +1,44 @@
 <div class="sidebar-container" *ngIf="data.sidebarVisible">
-  <div class="close-icon" (click)="closeSidebar($event)">X</div>
-  <div class="subtitle">Language</div>
-  <div class="language-choice">Mandarin</div>
-  <div class="subtitle">Difficulty</div>
-  <div class="difficulty-container">
-    <div class="difficulty-choice">HSK1</div>
-    <div class="difficulty-choice">HSK2</div>
-    <div class="difficulty-choice">HSK3</div>
-    <div class="difficulty-choice">HSK4</div>
-    <div class="difficulty-choice">HSK5</div>
-    <div class="difficulty-choice">HSK6</div>
+  <div class="sidebar-header">
+    <div class="close-icon" (click)="closeSidebar($event)"><fa-icon [icon]="faXmark"></fa-icon></div>
+  </div>
+  <div class="sidebar-main">
+    <div class="language-option-container">
+      <div class="subtitle">Language</div>
+      <div class="language-choice-container">
+        <button class="language-button">
+          <span class="fi fi-cn"></span>
+          <p>Mandarin</p>
+        </button>
+      </div>
+      <div class="language-choice-container">
+        <button class="language-button">
+          <span class="fi fi-jp"></span>
+          <p>Japanese</p>
+        </button>
+      </div>
+      <div class="language-choice-container">
+        <button class="language-button">
+          <span class="fi fi-kr"></span>
+          <p>Korean</p>
+        </button>
+      </div>
+      <div class="language-choice-container">
+        <button class="language-button">
+          <span class="fi fi-es"></span>
+          <p>Spanish</p>
+        </button>
+      </div>
+    </div>
+    <div class="subtitle">Difficulty</div>
+    <div class="difficulty-container">
+      <button class="difficulty-button">HSK1</button>
+      <button class="difficulty-button">HSK2</button>
+      <button class="difficulty-button">HSK3</button>
+      <button class="difficulty-button">HSK4</button>
+      <button class="difficulty-button">HSK5</button>
+      <button class="difficulty-button">HSK6</button>
+    </div>
   </div>
 </div>
 <div class="sidebar-backdrop" *ngIf="data.sidebarVisible"></div>

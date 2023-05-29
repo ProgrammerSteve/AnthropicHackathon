@@ -1,8 +1,13 @@
-.sidebar-container{
-  background-color: #190F0F;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+}
+.sidebar-container {
+  background-color: #190f0f;
   position: absolute;
   right: 0;
-  top:0;
+  top: 0;
   height: 100vh;
   width: 200px;
   color: white;
@@ -11,32 +16,124 @@
   flex-direction: column;
   align-items: center;
 }
-
-.close-icon{
-  color:white;
-  font-size: 30px;
-  align-self: flex-end;
-  cursor: pointer;
+.sidebar-container * {
+  font-family: "Inter", sans-serif;
 }
-.sidebar-backdrop{
-  background-color: rgba(255,255,255,0.5);
+
+.sidebar-main {
+  text-align: center;
+}
+
+.sidebar-header {
+  width: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: end;
+  align-items: center;
+  align-content: center;
+}
+
+.language-option-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  text-align: justify;
+}
+
+.language-option-container > div {
+  padding: 5px 0px;
+}
+
+.close-icon {
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  font-weight: bolder;
+  margin: 10px;
+}
+
+.sidebar-backdrop {
+  background-color: rgba(255, 255, 255, 0.5);
   position: absolute;
   inset: 0 0 0 0;
   height: 100vh;
   width: 100wh;
   z-index: 4;
 }
-.subtitle{
+
+.subtitle {
   font-size: 30px;
+  padding: 10px 0px;
 }
-.language-choice{
+
+.language-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
   font-size: 20px;
+  border-radius: 15px;
+  padding: 5px 10px 5px 10px;
+  width: 150px;
 }
-.difficulty-choice{
-  font-size: 15px;
+
+.language-option-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 70px 0px;
 }
-.difficulty-container{
+
+.difficulty-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap:10px 20px;
+  gap: 10px 20px;
+}
+
+.difficulty-button {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: transparent;
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 15px;
+  color: #ffffff;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  border-radius: 15px;
+}
+
+#difficulty-button option {
+  color: #000000;
+}
+
+.language-button span {
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+}
+
+.language-button p {
+  display: inline-block;
+}
+.language-button:hover {
+  background-color: rgba(217, 217, 217, 0.2);
+}
+.difficulty-button:hover {
+  background-color: rgba(217, 217, 217, 0.2) !important;
 }
